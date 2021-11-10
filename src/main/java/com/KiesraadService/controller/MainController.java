@@ -28,16 +28,4 @@ public class MainController {
         Party partyResult = partyRepository.save(party);
         return new ResponseEntity<Party>(partyResult, HttpStatus.OK);
     }
-
-    @GetMapping(path="/getparty/{partyid}")
-    public ResponseEntity<Party> getParty(@PathVariable long partyId){
-        Party partyResult =  partyRepository.getOne(partyId);
-        return new ResponseEntity<Party>(partyResult, HttpStatus.OK);
-    }
-
-    @GetMapping(path="/getparties")
-    public ResponseEntity<List<Party>> getParties(){
-        List<Party> partyList =  partyRepository.findAll();
-        return new ResponseEntity<List<Party>>(partyList, HttpStatus.OK);
-    }
 }
