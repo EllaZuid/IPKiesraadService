@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/council")
+@CrossOrigin(origins = "*")
 public class MainController {
 
     final PartyRepository partyRepository;
