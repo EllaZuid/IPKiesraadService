@@ -54,4 +54,16 @@ public class MainController {
         Election electionResult = electionRepository.save(election);
         return new ResponseEntity<Election>(electionResult, HttpStatus.OK);
     }
+
+    @GetMapping(path="/getelection/{electionid}")
+    public ResponseEntity<Election> getElection(@PathVariable long electionId){
+        Election electionResult =  electionRepository.getOne(electionId);
+        return new ResponseEntity<Election>(electionResult, HttpStatus.OK);
+    }
+
+    @GetMapping(path="/getelections/")
+    public ResponseEntity<List<Election>> getElections(){
+        List<Election> electionList =  electionRepository.findAll();
+        return new ResponseEntity<List<Election>>(electionList, HttpStatus.OK);
+    }
 }
