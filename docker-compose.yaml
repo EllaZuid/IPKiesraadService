@@ -12,15 +12,9 @@ services:
       - $MYSQLDB_LOCAL_PORT:$MYSQLDB_DOCKER_PORT
     volumes:
       - db:/var/lib/mysql
-  gatewayserver:
-    image: ghcr.io/argecy/ipgatewayserver:main
-    restart: always
-    ports:
-      - 8761:8761
   app:
     depends_on:
       - db
-      - gatewayserver
     image: ghcr.io/argecy/ipkiesraadservice:main
     restart: always
     env_file: ./.env
