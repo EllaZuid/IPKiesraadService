@@ -37,7 +37,7 @@ public class MainController {
     }
 
     @GetMapping(path="/getparty/{partyid}")
-    public ResponseEntity<Party> getParty(@PathVariable long partyId){
+    public ResponseEntity<Party> getParty(@PathVariable("partyid") long partyId){
         Party partyResult =  partyRepository.getOne(partyId);
         return new ResponseEntity<Party>(partyResult, HttpStatus.OK);
     }
@@ -56,7 +56,7 @@ public class MainController {
     }
 
     @GetMapping(path="/getelection/{electionid}")
-    public ResponseEntity<Election> getElection(@PathVariable long electionId){
+    public ResponseEntity<Election> getElection(@PathVariable("electionid") long electionId){
         Election electionResult =  electionRepository.getOne(electionId);
         return new ResponseEntity<Election>(electionResult, HttpStatus.OK);
     }
